@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
