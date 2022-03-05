@@ -33,12 +33,12 @@ export const BoardSlice = createSlice({
       const id = action.payload.target
       x.snackbarOpen[id] = action.payload.value
     },
-    setCardData: (state, action: PayloadAction<testDataType>) => {
+    setDataBase: (state, action: PayloadAction<testDataType>) => {
       const x = state
       const data = action.payload
       x.dataBase[data.index] = data
     },
-    setStateStorage: (state) => {
+    setDataStorage: (state) => {
       const x = state
       const dataBase = JSON.stringify(x.dataBase)
       localStorage.setItem('dataBase', dataBase)
@@ -53,7 +53,7 @@ export const snackbarOpen = (state: RootState) => state.board.snackbarOpen
 
 export const {
   toggleDarkMode, toggleCardMenu,
-  toggleSnackbar, setCardData, setStateStorage,
+  toggleSnackbar, setDataBase, setDataStorage,
 } = BoardSlice.actions
 
 export default BoardSlice.reducer

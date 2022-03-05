@@ -5,7 +5,7 @@ import { Box, IconButton, Snackbar, Button } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { snackbarOpen,
-  toggleSnackbar, setCardData, setStateStorage } from '../../features/boardSlice'
+  toggleSnackbar, setDataBase, setDataStorage } from '../../features/boardSlice'
 import themeMaker from '../../features/themeMaker'
 import testApi from '../../features/testApi'
 import { testDataType } from '../../features/types'
@@ -31,9 +31,9 @@ const TestApiSnackbar = (props: snackbar) => {
             title: article.title,
             imgSrc: article.urlToImage,
           }
-          dispatch(setCardData(data))
+          dispatch(setDataBase(data))
         }),
-      ).then(() => dispatch(setStateStorage()))
+      ).then(() => dispatch(setDataStorage()))
       .catch((error) => console.log(`handleClick -> error : ${error}`))
   }
 
