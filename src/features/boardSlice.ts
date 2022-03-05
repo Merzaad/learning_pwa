@@ -1,12 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../app/store'
-import { BoardStateType, CardDataType } from './types'
+import { BoardStateType, dataBaseType } from './types'
 
+const initialDataBase = () => {
+  const x = localStorage.getItem('dataBase')
+  const data: dataBaseType[] = JSON.parse(x!)
+  return data
+}
 const initialState: BoardStateType = {
   darkMode: !!(localStorage.getItem('darkMode') === 'true'),
   cardMenuOpen: [],
   snackbarOpen: [],
-  dataBase: [],
+  dataBase: initialDataBase() || [],
 }
 
 export const BoardSlice = createSlice({
@@ -28,11 +33,15 @@ export const BoardSlice = createSlice({
       const id = action.payload.target
       x.snackbarOpen[id] = action.payload.value
     },
-    SetCardData: (state, action: PayloadAction<CardDataType>) => {
+    setCardData: (state, action: PayloadAction<dataBaseType>) => {
       const x = state
       const data = action.payload
-      const { index } = data
-      x.dataBase[index] = data
+      x.dataBase[data.index] = data
+    },
+    setStateStorage: (state) => {
+      const x = state
+      const dataBase = JSON.stringify(x.dataBase)
+      localStorage.setItem('dataBase', dataBase)
     },
   },
 })
@@ -44,7 +53,7 @@ export const snackbarOpen = (state: RootState) => state.board.snackbarOpen
 
 export const {
   toggleDarkMode, toggleCardMenu,
-  toggleSnackbar, SetCardData,
+  toggleSnackbar, setCardData, setStateStorage,
 } = BoardSlice.actions
 
 export default BoardSlice.reducer

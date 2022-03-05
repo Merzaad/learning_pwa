@@ -1,4 +1,4 @@
-export type CardDataType = {
+export type dataBaseType = {
     index: number,
     text: string,
     title: string,
@@ -9,5 +9,5 @@ export type BoardStateType = {
     darkMode: boolean
     cardMenuOpen: boolean[],
     snackbarOpen: boolean[],
-    dataBase: CardDataType[],
+    dataBase: dataBaseType[],
 }

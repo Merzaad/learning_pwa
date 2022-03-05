@@ -4,9 +4,11 @@ import * as React from 'react'
 import { Box, IconButton, Snackbar, Button } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { snackbarOpen, toggleSnackbar, SetCardData } from '../../features/boardSlice'
+import { snackbarOpen,
+  toggleSnackbar, setCardData, setStateStorage } from '../../features/boardSlice'
 import themeMaker from '../../features/themeMaker'
 import testApi from '../../features/testApi'
+import { dataBaseType } from '../../features/types'
 
 type snackbar = {
   index: number
@@ -23,12 +25,14 @@ const TestApiSnackbar = (props: snackbar) => {
     testApi()
       .then(
         (responseObject) => responseObject.articles.forEach((article: any, id: number) => {
-          dispatch(SetCardData({
+          const dataBase: dataBaseType = {
             index: id,
             text: article.description,
             title: article.title,
             imgSrc: article.urlToImage,
-          }))
+          }
+          dispatch(setCardData(dataBase))
+          dispatch(setStateStorage())
         }),
       )
       .catch((error) => console.log(`handleClick -> error : ${error}`))
