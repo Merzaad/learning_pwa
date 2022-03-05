@@ -11,10 +11,10 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
 import themeMaker from '../../features/themeMaker'
-import { dataBaseType } from '../../features/types'
+import { testDataType } from '../../features/types'
 
 type PropsType = {
-  data: dataBaseType
+  data: testDataType
 }
 
 const CardM = (props: PropsType) => {

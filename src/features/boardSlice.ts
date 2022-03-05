@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../app/store'
-import { BoardStateType, dataBaseType } from './types'
+import { BoardStateType, testDataType } from './types'
 
 const initialDataBase = () => {
   const x = localStorage.getItem('dataBase')
-  const data: dataBaseType[] = JSON.parse(x!)
+  const data: testDataType[] = JSON.parse(x!)
   return data
 }
 const initialState: BoardStateType = {
@@ -33,7 +33,7 @@ export const BoardSlice = createSlice({
       const id = action.payload.target
       x.snackbarOpen[id] = action.payload.value
     },
-    setCardData: (state, action: PayloadAction<dataBaseType>) => {
+    setCardData: (state, action: PayloadAction<testDataType>) => {
       const x = state
       const data = action.payload
       x.dataBase[data.index] = data

@@ -8,7 +8,7 @@ import { snackbarOpen,
   toggleSnackbar, setCardData, setStateStorage } from '../../features/boardSlice'
 import themeMaker from '../../features/themeMaker'
 import testApi from '../../features/testApi'
-import { dataBaseType } from '../../features/types'
+import { testDataType } from '../../features/types'
 
 type snackbar = {
   index: number
@@ -25,16 +25,15 @@ const TestApiSnackbar = (props: snackbar) => {
     testApi()
       .then(
         (responseObject) => responseObject.articles.forEach((article: any, id: number) => {
-          const dataBase: dataBaseType = {
+          const data: testDataType = {
             index: id,
             text: article.description,
             title: article.title,
             imgSrc: article.urlToImage,
           }
-          dispatch(setCardData(dataBase))
-          dispatch(setStateStorage())
+          dispatch(setCardData(data))
         }),
-      )
+      ).then(() => dispatch(setStateStorage()))
       .catch((error) => console.log(`handleClick -> error : ${error}`))
   }
 

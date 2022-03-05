@@ -1,4 +1,4 @@
-export type dataBaseType = {
+export type testDataType = {
     index: number,
     text: string,
     title: string,
@@ -9,5 +9,5 @@ export type BoardStateType = {
     darkMode: boolean
     cardMenuOpen: boolean[],
     snackbarOpen: boolean[],
-    dataBase: dataBaseType[],
+    dataBase: testDataType[],
 }
