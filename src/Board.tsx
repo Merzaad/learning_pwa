@@ -9,9 +9,8 @@ const Board = () => {
   const { appColor, paperColor } = themeMaker()
   const testDataBase = useAppSelector(selectTestDataBase)
   const board = testDataBase.map((data) => (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} md={6} key={data.index}>
       <Paper
-        key={data.index}
         sx={{
           padding: '10px',
           background: paperColor,

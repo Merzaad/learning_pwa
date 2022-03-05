@@ -70,7 +70,7 @@ const TestApiSnackbar = (props: snackbar) => {
         open={isOpen}
         autoHideDuration={6000}
         onClose={handleClose}
-        message="Api called check console"
+        message="Request Sent"
         action={action}
       />
     </Box>
