@@ -39,11 +39,7 @@ const CardM = (props: PropsType) => {
         src={data.imgSrc}
         alt="Card Media Alt"
       />
-      <CardContent
-        sx={{
-          overflow: 'hidden',
-        }}
-      >
+      <CardContent>
         {data.text}
       </CardContent>
       <CardActions disableSpacing>
