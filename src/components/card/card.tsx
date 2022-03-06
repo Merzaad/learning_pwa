@@ -1,13 +1,6 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import * as React from 'react'
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  IconButton,
-  CardMedia,
-  CardActions,
-} from '@mui/material'
+import { Card, CardHeader, CardContent, IconButton, CardMedia, CardActions } from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import ShareIcon from '@mui/icons-material/Share'
 import themeMaker from '../../features/themeMaker'
@@ -30,18 +23,9 @@ const CardM = (props: PropsType) => {
         height: '500px',
       }}
     >
-      <CardHeader
-        title={data.title}
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        src={data.imgSrc}
-        alt="Card Media Alt"
-      />
-      <CardContent>
-        {data.text}
-      </CardContent>
+      <CardHeader title={data.title} />
+      <CardMedia component="img" height="194" src={data.imgSrc} alt="Card Media Alt" />
+      <CardContent>{data.text}</CardContent>
       <CardActions disableSpacing>
         <IconButton>
           <FavoriteIcon
