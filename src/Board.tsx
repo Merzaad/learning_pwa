@@ -15,11 +15,11 @@ const Board = () => {
           padding: '10px',
           background: paperColor,
         }}
+        elevation={0}
       >
         <CardM data={data} />
       </Paper>
     </Grid>
-
   ))
   return (
     <Box
