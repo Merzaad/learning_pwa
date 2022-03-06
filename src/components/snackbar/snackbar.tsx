@@ -1,11 +1,18 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable object-curly-newline */
 import * as React from 'react'
 
 import { Box, IconButton, Snackbar, Button } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { snackbarOpen,
-  toggleSnackbar, setDataBase, setDataStorage } from '../../features/boardSlice'
+import {
+  snackbarOpen,
+  toggleSnackbar,
+  setDataBase,
+  setDataStorage,
+  clearDataBase,
+} from '../../features/boardSlice'
 import themeMaker from '../../features/themeMaker'
 import testApi from '../../features/testApi'
 import { testDataType } from '../../features/types'
@@ -20,11 +27,15 @@ const TestApiSnackbar = (props: snackbar) => {
   const dispatch = useAppDispatch()
   const isOpen = useAppSelector(snackbarOpen)[index]
 
+  const handleClear = (): void => {
+    dispatch(clearDataBase())
+  }
+
   const handleRequest = (): void => {
     dispatch(toggleSnackbar({ target: index, value: true }))
     testApi()
-      .then(
-        (responseObject) => responseObject.articles.forEach((article: any, id: number) => {
+      .then((responseObject) =>
+        responseObject.articles.forEach((article: any, id: number) => {
           const data: testDataType = {
             index: id,
             text: article.description,
@@ -33,7 +44,8 @@ const TestApiSnackbar = (props: snackbar) => {
           }
           dispatch(setDataBase(data))
         }),
-      ).then(() => dispatch(setDataStorage()))
+      )
+      .then(() => dispatch(setDataStorage()))
       .catch((error) => console.log(`handleClick -> error : ${error}`))
   }
 
@@ -58,14 +70,29 @@ const TestApiSnackbar = (props: snackbar) => {
           color: txtColor,
           background: bgColor,
           ':hover': {
-            background: bgColor,
-            color: txtColor,
+            background: txtColor,
+            color: bgColor,
           },
         }}
         onClick={handleRequest}
       >
-        testApi news
+        testApi
       </Button>
+      <Button
+        variant="contained"
+        sx={{
+          color: txtColor,
+          background: bgColor,
+          ':hover': {
+            background: txtColor,
+            color: bgColor,
+          },
+        }}
+        onClick={handleClear}
+      >
+        clear
+      </Button>
+
       <Snackbar
         open={isOpen}
         autoHideDuration={6000}

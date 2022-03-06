@@ -45,6 +45,11 @@ export const BoardSlice = createSlice({
       const dataBase = JSON.stringify(x.dataBase)
       localStorage.setItem('dataBase', dataBase)
     },
+    clearDataBase: (state) => {
+      const x = state
+      x.dataBase = []
+      localStorage.removeItem('dataBase')
+    },
   },
 })
 
@@ -53,7 +58,13 @@ export const selectTestDataBase = (state: RootState) => state.board.dataBase
 export const cardMenuOpen = (state: RootState) => state.board.cardMenuOpen
 export const snackbarOpen = (state: RootState) => state.board.snackbarOpen
 
-export const { toggleDarkMode, toggleCardMenu, toggleSnackbar, setDataBase, setDataStorage } =
-  BoardSlice.actions
+export const {
+  toggleDarkMode,
+  toggleCardMenu,
+  toggleSnackbar,
+  setDataBase,
+  setDataStorage,
+  clearDataBase,
+} = BoardSlice.actions
 
 export default BoardSlice.reducer

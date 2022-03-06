@@ -25,7 +25,7 @@ const CardM = (props: PropsType) => {
       }}
     >
       <CardHeader title={data.title} />
-      <CardMedia component="img" height="194" src={data.imgSrc} alt="Card Media Alt" />
+      <CardMedia component="img" height="194" src={data.imgSrc} alt={data.imgSrc} />
       <CardContent>{data.text}</CardContent>
       <CardActions disableSpacing>
         <IconButton>
