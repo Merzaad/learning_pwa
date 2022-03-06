@@ -77,7 +77,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx pretty-quick --staged ng lint ng test",
+      "pre-commit": "npx pretty-quick --bail",
       "pre-push": "ng build --aot true"
     }
   }
