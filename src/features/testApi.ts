@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 const testApi = async () => {
   const options = {
     method: 'GET',
