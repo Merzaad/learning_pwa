@@ -13,7 +13,6 @@ type PropsType = {
 const CardM = (props: PropsType) => {
   const { data } = props
   const { bgColor, txtColor } = themeMaker()
-  
 
   return (
     <Card
