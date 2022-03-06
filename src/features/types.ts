@@ -1,13 +1,13 @@
 export type testDataType = {
-    index: number,
-    text: string,
-    title: string,
-    imgSrc: string
-  }
+  index: number
+  text: string
+  title: string
+  imgSrc: string
+}
 
 export type BoardStateType = {
-    darkMode: boolean
-    cardMenuOpen: boolean[],
-    snackbarOpen: boolean[],
-    dataBase: testDataType[],
+  darkMode: boolean
+  cardMenuOpen: boolean[]
+  snackbarOpen: boolean[]
+  dataBase: testDataType[]
 }
