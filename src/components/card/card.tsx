@@ -1,5 +1,3 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/jsx-wrap-multilines */
 import * as React from 'react'
 import { Card, CardHeader, CardContent, IconButton, CardMedia, CardActions } from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite'
