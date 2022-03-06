@@ -1,5 +1,4 @@
 /* eslint-disable function-paren-newline */
-/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable object-curly-newline */
 import * as React from 'react'
 
