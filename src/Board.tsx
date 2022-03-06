@@ -17,7 +17,8 @@ const Board = () => {
         }}
         elevation={0}
       >
-        <CardM data={data} />
+        <CardM data={data} 
+        />
       </Paper>
     </Grid>
   ))
