@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Box, Paper } from '@mui/material'
+import { Grid, Container, Paper } from '@mui/material'
 import CardM from './components/card/card'
 import themeMaker from './features/themeMaker'
 import { useAppSelector } from './app/hooks'
@@ -14,6 +14,9 @@ const Board = () => {
         sx={{
           padding: '10px',
           background: paperColor,
+          '@media screen and (max-width: 900px)': {
+            padding: '0px',
+          },
         }}
         elevation={0}
       >
@@ -22,18 +25,21 @@ const Board = () => {
     </Grid>
   ))
   return (
-    <Box
+    <Container
       sx={{
         padding: '10px',
         background: appColor,
         paddingBottom: '100px',
         minHeight: '100vh',
+        '@media screen and (max-width: 900px)': {
+          padding: '0px',
+        },
       }}
     >
       <Grid container spacing={2}>
         {board}
       </Grid>
-    </Box>
+    </Container>
   )
 }
 

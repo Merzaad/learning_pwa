@@ -63,7 +63,12 @@ const TestApiSnackbar = (props: snackbar) => {
   )
 
   return (
-    <Box>
+    <Box
+      sx={{
+        display: 'flex',
+        gap: '5px',
+      }}
+    >
       <Button
         variant="contained"
         sx={{
