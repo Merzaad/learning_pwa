@@ -20,11 +20,10 @@ const CardM = (props: PropsType) => {
       sx={{
         background: bgColor,
         color: txtColor,
-        height: '500px',
       }}
     >
       <CardHeader title={data.title} />
-      <CardMedia component="img" height="194" src={data.imgSrc} alt={data.imgSrc} />
+      <CardMedia component="img" src={data.imgSrc} alt={data.title} />
       <CardContent>{data.text}</CardContent>
       <CardActions disableSpacing>
         <IconButton>
