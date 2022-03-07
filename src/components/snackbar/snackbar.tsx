@@ -41,6 +41,9 @@ const TestApiSnackbar = (props: snackbar) => {
             text: article.description,
             title: article.title,
             imgSrc: article.urlToImage,
+            publishedAt: article.publishedAt,
+            author: article.author,
+            url: article.url,
           }
           dispatch(setDataBase(data))
         }),

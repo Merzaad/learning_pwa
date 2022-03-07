@@ -1,7 +1,7 @@
 /* eslint-disable object-curly-newline */
 import * as React from 'react'
 import { Card, CardHeader, CardContent, IconButton, CardMedia, CardActions } from '@mui/material'
-import FavoriteIcon from '@mui/icons-material/Favorite'
+import InsertLinkIcon from '@mui/icons-material/InsertLink'
 import ShareIcon from '@mui/icons-material/Share'
 import themeMaker from '../../features/themeMaker'
 import { testDataType } from '../../features/types'
@@ -22,17 +22,20 @@ const CardM = (props: PropsType) => {
         color: txtColor,
       }}
     >
-      <CardHeader title={data.title} />
+      <CardHeader title={data.title} subheader={data.publishedAt} />
       <CardMedia component="img" src={data.imgSrc} alt={data.title} />
-      <CardContent>{data.text}</CardContent>
+      <CardContent>{`${data.text}  _author:${data.author}`}</CardContent>
       <CardActions disableSpacing>
-        <IconButton>
-          <FavoriteIcon
-            sx={{
-              color: txtColor,
-            }}
-          />
-        </IconButton>
+        <a href={data.url} target="_blank" rel="noreferrer">
+          <IconButton>
+            <InsertLinkIcon
+              sx={{
+                color: txtColor,
+              }}
+            />
+          </IconButton>
+        </a>
+
         <IconButton>
           <ShareIcon
             sx={{

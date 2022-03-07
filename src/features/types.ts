@@ -3,6 +3,9 @@ export type testDataType = {
   text: string
   title: string
   imgSrc: string
+  publishedAt: string
+  author: string
+  url: string
 }
 
 export type BoardStateType = {
