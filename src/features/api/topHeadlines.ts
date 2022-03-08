@@ -1,5 +1,5 @@
 /* eslint-disable operator-linebreak */
-const testApi = async (): Promise<any> => {
+const topHeadlinesApi = async (): Promise<any> => {
   const options = {
     method: 'GET',
   }
@@ -9,7 +9,6 @@ const testApi = async (): Promise<any> => {
     'apiKey=f1a22ede52574494bd6efba4dc31cd2e'
   const response = await fetch(url, options)
   const responseJSON = await response.text()
-  const responseObject = await JSON.parse(responseJSON)
-  return responseObject
+  return JSON.parse(responseJSON)
 }
-export default testApi
+export default topHeadlinesApi

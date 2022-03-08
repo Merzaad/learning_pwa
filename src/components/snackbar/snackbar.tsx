@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
 import * as React from 'react'
@@ -11,10 +12,10 @@ import {
   setDataBase,
   setDataStorage,
   clearDataBase,
-} from '../../features/boardSlice'
-import themeMaker from '../../features/themeMaker'
-import testApi from '../../features/testApi'
-import { testDataType } from '../../features/types'
+} from '../../features/slice/board'
+import themeMaker from '../../features/theme/themeMaker'
+import testApi from '../../features/api/topHeadlines'
+import { testDataType } from '../../features/types/types'
 
 type snackbar = {
   index: number
@@ -22,9 +23,10 @@ type snackbar = {
 
 const TestApiSnackbar = (props: snackbar) => {
   const { index } = props
-  const { bgColor, txtColor } = themeMaker()
+  const { snackbarButton } = themeMaker()
   const dispatch = useAppDispatch()
   const isOpen = useAppSelector(snackbarOpen)[index]
+
   const request = async (): Promise<any> => {
     const object = await testApi()
     object.articles.forEach((article: any, id: number) => {
@@ -71,32 +73,10 @@ const TestApiSnackbar = (props: snackbar) => {
         gap: '5px',
       }}
     >
-      <Button
-        variant="contained"
-        sx={{
-          color: txtColor,
-          background: bgColor,
-          ':hover': {
-            background: txtColor,
-            color: bgColor,
-          },
-        }}
-        onClick={handleRequest}
-      >
+      <Button variant="contained" sx={snackbarButton} onClick={handleRequest}>
         testApi
       </Button>
-      <Button
-        variant="contained"
-        sx={{
-          color: txtColor,
-          background: bgColor,
-          ':hover': {
-            background: txtColor,
-            color: bgColor,
-          },
-        }}
-        onClick={handleClear}
-      >
+      <Button variant="contained" sx={snackbarButton} onClick={handleClear}>
         clear
       </Button>
 

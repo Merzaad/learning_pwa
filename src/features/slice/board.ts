@@ -1,8 +1,8 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable object-curly-newline */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '../app/store'
-import { BoardStateType, testDataType } from './types'
+import { RootState } from '../../app/store'
+import { BoardStateType, testDataType } from '../types/types'
 
 const initialDataBase = () => {
   const x = localStorage.getItem('dataBase')

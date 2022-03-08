@@ -14,3 +14,16 @@ export type BoardStateType = {
   snackbarOpen: boolean[]
   dataBase: testDataType[]
 }
+
+export type ThemeMakerType = {
+  bgColor: string
+  txtColor: string
+  paperColor: string
+  appColor: string
+  navColor: string
+  boardContainer: object
+  board1Paper: object
+  board2Paper: object
+  navbarBox: object
+  snackbarButton: object
+}
