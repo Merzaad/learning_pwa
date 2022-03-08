@@ -26,6 +26,23 @@ const TestApiSnackbar = (props: snackbar) => {
   const { bgColor, txtColor } = themeMaker()
   const dispatch = useAppDispatch()
   const isOpen = useAppSelector(snackbarOpen)[index]
+  const request = async (): Promise<any> => {
+    const object = await testApi()
+    object.articles.forEach((article: any, id: number) => {
+      const data: testDataType = {
+        index: id,
+        text: article.description,
+        title: article.title,
+        imgSrc: article.urlToImage,
+        publishedAt: article.publishedAt,
+        author: article.author,
+        url: article.url,
+      }
+      dispatch(setDataBase(data))
+    })
+    dispatch(setDataStorage())
+    return object
+  }
 
   const handleClear = (): void => {
     dispatch(clearDataBase())
@@ -33,23 +50,7 @@ const TestApiSnackbar = (props: snackbar) => {
 
   const handleRequest = (): void => {
     dispatch(toggleSnackbar({ target: index, value: true }))
-    testApi()
-      .then((responseObject) =>
-        responseObject.articles.forEach((article: any, id: number) => {
-          const data: testDataType = {
-            index: id,
-            text: article.description,
-            title: article.title,
-            imgSrc: article.urlToImage,
-            publishedAt: article.publishedAt,
-            author: article.author,
-            url: article.url,
-          }
-          dispatch(setDataBase(data))
-        }),
-      )
-      .then(() => dispatch(setDataStorage()))
-      .catch((error) => console.log(`handleClick -> error : ${error}`))
+    request().catch((error) => console.log(error))
   }
 
   const handleClose = (event: React.SyntheticEvent | Event, reason?: string): void => {
@@ -64,7 +65,6 @@ const TestApiSnackbar = (props: snackbar) => {
       <CloseIcon />
     </IconButton>
   )
-
   return (
     <Box
       sx={{

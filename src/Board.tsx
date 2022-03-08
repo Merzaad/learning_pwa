@@ -9,20 +9,20 @@ const Board = () => {
   const { appColor, paperColor } = themeMaker()
   const testDataBase = useAppSelector(selectTestDataBase)
   const board = testDataBase.map((data) => (
-    <Grid item xs={12} md={6} key={data.index}>
-      <Paper
-        sx={{
-          padding: '10px',
-          background: paperColor,
-          '@media screen and (max-width: 900px)': {
-            padding: '0px',
-          },
-        }}
-        elevation={0}
-      >
-        <CardM data={data} />
-      </Paper>
-    </Grid>
+    <Paper
+      key={data.index}
+      sx={{
+        padding: '10px',
+        m: 1,
+        background: paperColor,
+        '@media screen and (max-width: 900px)': {
+          padding: '0px',
+        },
+      }}
+      elevation={0}
+    >
+      <CardM data={data} />
+    </Paper>
   ))
   return (
     <Container
@@ -37,7 +37,12 @@ const Board = () => {
       }}
     >
       <Grid container spacing={2}>
-        {board}
+        <Grid item xs={12} md={8}>
+          {board}
+        </Grid>
+        <Grid item xs={12} md={4}>
+          {board}
+        </Grid>
       </Grid>
     </Container>
   )

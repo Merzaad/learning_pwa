@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx eslint --fix-dry-run
+npm run lint
 npx pretty-quick
