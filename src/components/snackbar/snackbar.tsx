@@ -1,6 +1,5 @@
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable object-curly-newline */
 import * as React from 'react'
 
 import { Box, IconButton, Snackbar, Button } from '@mui/material'
