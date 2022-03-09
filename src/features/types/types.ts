@@ -13,6 +13,7 @@ export type BoardStateType = {
   cardMenuOpen: boolean[]
   snackbarOpen: boolean[]
   dataBase: testDataType[]
+  dataBaseCountry: string
 }
 
 export type ThemeMakerType = {
@@ -21,9 +22,9 @@ export type ThemeMakerType = {
   paperColor: string
   appColor: string
   navColor: string
-  boardContainer: object
-  board1Paper: object
-  board2Paper: object
+  boardBox: object
+  boardLeftPaper: object
+  boardRightPaper: object
   navbarBox: object
   snackbarButton: object
 }

@@ -4,40 +4,41 @@ import { ThemeMakerType } from '../types/types'
 
 const themeMaker = (): ThemeMakerType => {
   const darkMode = useAppSelector(selectDarkMode)
-  const txtColor = darkMode ? '#F05454' : '#1E3440'
-  const bgColor = darkMode ? '#15141a' : '#FEFBF3'
+  const txtColor = darkMode ? '#DDDDDD' : '#1E3440'
+  const bgColor = darkMode ? '#2D2D2D' : '#FEFBF3'
   const paperColor = darkMode ? '#1D1D1D' : '#B8B8B8'
   const appColor = darkMode ? '#181818' : '#9D9D9D'
-  const navColor = darkMode ? '#2D2D2D' : '#00C897'
-  const boardContainer = {
-    padding: '10px',
+  const navColor = darkMode ? '#152D35' : '#00C897'
+
+  const boardBox = {
+    p: '10px',
     background: appColor,
-    paddingBottom: '100px',
+    pt: '50px',
     minHeight: '100vh',
     '@media screen and (max-width: 900px)': {
-      padding: '0px',
+      px: 0,
     },
   }
-  const board1Paper = {
+  const boardLeftPaper = {
     m: 1,
     background: paperColor,
     '@media screen and (max-width: 900px)': {
       m: 0.5,
     },
   }
-  const board2Paper = {
-    padding: '5px',
+  const boardRightPaper = {
     m: 1,
     background: paperColor,
     '@media screen and (max-width: 900px)': {
       padding: '10px',
       m: 4,
     },
+    position: 'sticky',
   }
   const navbarBox = {
     background: navColor,
     position: 'fixed',
-    bottom: '0',
+    top: '0',
     zIndex: '1',
     width: '100%',
     height: '50px',
@@ -59,9 +60,9 @@ const themeMaker = (): ThemeMakerType => {
     paperColor,
     appColor,
     navColor,
-    boardContainer,
-    board1Paper,
-    board2Paper,
+    boardBox,
+    boardLeftPaper,
+    boardRightPaper,
     navbarBox,
     snackbarButton,
   }

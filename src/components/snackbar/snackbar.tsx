@@ -12,9 +12,10 @@ import {
   setDataBase,
   setDataStorage,
   clearDataBase,
+  selectDataCountry,
 } from '../../features/slice/board'
 import themeMaker from '../../features/theme/themeMaker'
-import testApi from '../../features/api/topHeadlines'
+import countryApi from '../../features/api/country'
 import { testDataType } from '../../features/types/types'
 
 type snackbar = {
@@ -26,9 +27,10 @@ const TestApiSnackbar = (props: snackbar) => {
   const { snackbarButton } = themeMaker()
   const dispatch = useAppDispatch()
   const isOpen = useAppSelector(snackbarOpen)[index]
+  const country = useAppSelector(selectDataCountry)
 
   const request = async (): Promise<any> => {
-    const object = await testApi()
+    const object = await countryApi(country)
     object.articles.forEach((article: any, id: number) => {
       const data: testDataType = {
         index: id,
