@@ -2,9 +2,14 @@
 import * as React from 'react'
 import { Paper, Button } from '@mui/material'
 import themeMaker from '../../features/theme/themeMaker'
-import { setDataCountry, clearDataBase,
-  selectDataCountry, setDataBase, toggleSnackbar,
-  setDataStorage } from '../../features/slice/board'
+import {
+  setDataCountry,
+  clearDataBase,
+  selectDataCountry,
+  setDataBase,
+  toggleSnackbar,
+  setDataStorage,
+} from '../../features/slice/board'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import TestApiSnackbar from '../snackbar/snackbar'
 import { testDataType } from '../../features/types/types'
@@ -51,10 +56,20 @@ const MenuM = () => {
 
   return (
     <Paper sx={boardRightPaper}>
-      <Button sx={button} onClick={handleSelectUs}>Us</Button>
-      <Button sx={button} onClick={handleSelectIt}>It</Button>
-      <Button sx={button} onClick={handleClear}> clear</Button>
-      <Button sx={button} onClick={handleRequest}> Request</Button>
+      <Button sx={button} onClick={handleSelectUs}>
+        Us
+      </Button>
+      <Button sx={button} onClick={handleSelectIt}>
+        It
+      </Button>
+      <Button sx={button} onClick={handleClear}>
+        {' '}
+        clear
+      </Button>
+      <Button sx={button} onClick={handleRequest}>
+        {' '}
+        Request
+      </Button>
       <TestApiSnackbar index={0} />
     </Paper>
   )

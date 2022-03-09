@@ -42,7 +42,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint": "eslint \"**/*.{ts, tsx}\" --max-warnings 6" 
+    "lint": "eslint \"**/*.{ts, tsx}\" --max-warnings 6"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -77,4 +77,3 @@
     "pretty-quick": "^3.1.3"
   }
 }
-

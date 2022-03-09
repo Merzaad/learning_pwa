@@ -6,10 +6,7 @@ import * as React from 'react'
 import { Box, IconButton, Snackbar } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import {
-  snackbarOpen,
-  toggleSnackbar,
-} from '../../features/slice/board'
+import { snackbarOpen, toggleSnackbar } from '../../features/slice/board'
 
 type snackbar = {
   index: number
