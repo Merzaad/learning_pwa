@@ -28,7 +28,10 @@ const themeMaker = (): ThemeMakerType => {
   }
   const boardRightPaper = {
     m: 1,
-    background: paperColor,
+    background: bgColor,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
     '@media screen and (max-width: 900px)': {
       padding: '10px',
       m: 4,
@@ -46,7 +49,7 @@ const themeMaker = (): ThemeMakerType => {
     justifyContent: 'center',
     alignItems: 'center',
   }
-  const snackbarButton = {
+  const button = {
     color: txtColor,
     background: bgColor,
     ':hover': {
@@ -64,7 +67,7 @@ const themeMaker = (): ThemeMakerType => {
     boardLeftPaper,
     boardRightPaper,
     navbarBox,
-    snackbarButton,
+    button,
   }
 }
 export default themeMaker

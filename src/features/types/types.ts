@@ -26,5 +26,5 @@ export type ThemeMakerType = {
   boardLeftPaper: object
   boardRightPaper: object
   navbarBox: object
-  snackbarButton: object
+  button: object
 }

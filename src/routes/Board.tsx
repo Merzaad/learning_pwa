@@ -25,7 +25,6 @@ const Board = () => {
           <MenuM />
         </Grid>
       </Grid>
-
     </Box>
   )
 }
