@@ -5,8 +5,8 @@ import { RootState } from '../../app/store'
 import { BoardStateType, testDataType } from '../types/types'
 
 const initialDataBase = () => {
-  const x = localStorage.getItem('dataBase')
-  const data: testDataType[] = JSON.parse(x!)
+  const dataBase = localStorage.getItem('dataBase')
+  const data: testDataType[] = JSON.parse(dataBase!)
   return data || []
 }
 const initialState: BoardStateType = {
