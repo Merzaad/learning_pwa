@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-newline */
 import * as React from 'react'
 import { Paper, Button } from '@mui/material'
 import themeMaker from '../../features/theme/themeMaker'
