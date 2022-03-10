@@ -37,37 +37,23 @@ const MenuM = () => {
     dispatch(setDataStorage())
     return object
   }
-
-  const handleSelectUs = () => {
-    dispatch(setDataCountry('us'))
-  }
-  const handleSelectIt = () => {
-    dispatch(setDataCountry('it'))
-  }
-  const handleClear = (): void => {
-    dispatch(clearDataBase())
+  const handleSelectCountry = (selectedCountry: string) => {
+    dispatch(setDataCountry(selectedCountry))
   }
 
-  const handleRequest = (): void => {
+  React.useEffect((): any => {
     dispatch(toggleSnackbar({ target: 0, value: true }))
     request().catch((error) => console.log(error))
-  }
+    return () => dispatch(clearDataBase())
+  }, [country])
 
   return (
     <Paper sx={boardRightPaper}>
-      <Button sx={button} onClick={handleSelectUs}>
+      <Button sx={button} onClick={() => handleSelectCountry('us')}>
         Us
       </Button>
-      <Button sx={button} onClick={handleSelectIt}>
+      <Button sx={button} onClick={() => handleSelectCountry('it')}>
         It
-      </Button>
-      <Button sx={button} onClick={handleClear}>
-        {' '}
-        clear
-      </Button>
-      <Button sx={button} onClick={handleRequest}>
-        {' '}
-        Request
       </Button>
       <TestApiSnackbar index={0} />
     </Paper>
