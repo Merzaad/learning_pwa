@@ -22,7 +22,6 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
-    "typescript": "~4.1.5",
     "workbox-background-sync": "^5.1.4",
     "workbox-broadcast-update": "^5.1.4",
     "workbox-cacheable-response": "^5.1.4",
@@ -42,7 +41,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint": "eslint \"**/*.{ts, tsx}\" --max-warnings 6"
+    "lint": "eslint --ext .ts --ignore-path .gitignore ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -64,8 +63,8 @@
   },
   "devDependencies": {
     "@types/workbox-expiration": "^4.3.1",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.10.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
@@ -74,7 +73,8 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",
-    "pretty-quick": "^3.1.3"
+    "pretty-quick": "^3.1.3",
+    "typescript": "^4.6.2"
   },
   "lint-staged": {
     "**/*.{ts, tsx}": [

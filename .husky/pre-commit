@@ -2,4 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npx pretty-quick
-npx eslint "./src/**.{ts, tsx}"
+npx eslint "**/*.tsx"
+npx eslint "**/*.ts"
