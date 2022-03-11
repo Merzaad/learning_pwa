@@ -1,5 +1,8 @@
 /* eslint-disable operator-linebreak */
-const countryApi = async (country: string): Promise<any> => {
+import { testDataType } from '../types/types'
+
+const countryApi = async (country: string): Promise<testDataType[]> => {
+  const memory: testDataType[] = []
   const options = {
     method: 'GET',
   }
@@ -9,6 +12,19 @@ const countryApi = async (country: string): Promise<any> => {
     'apiKey=f1a22ede52574494bd6efba4dc31cd2e'
   const response = await fetch(url, options)
   const responseJSON = await response.text()
-  return JSON.parse(responseJSON)
+  const responseObject = await JSON.parse(responseJSON)
+  responseObject.articles.forEach((article: any, id: number) => {
+    memory.push({
+      index: id,
+      text: article.description,
+      title: article.title,
+      imgSrc: article.urlToImage,
+      publishedAt: article.publishedAt,
+      author: article.author,
+      url: article.url,
+    })
+  })
+
+  return memory
 }
 export default countryApi

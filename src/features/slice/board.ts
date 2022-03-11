@@ -36,10 +36,10 @@ export const BoardSlice = createSlice({
       const id = action.payload.target
       x.snackbarOpen[id] = action.payload.value
     }, // toggle with new value or switching?
-    setDataBase: (state, action: PayloadAction<testDataType>) => {
+    setDataBase: (state, action: PayloadAction<testDataType[]>) => {
       const x = state
       const data = action.payload
-      x.dataBase[data.index] = data
+      x.dataBase = data
     },
     setDataStorage: (state) => {
       const x = state

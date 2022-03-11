@@ -5,13 +5,11 @@ import {
   setDataCountry,
   clearDataBase,
   selectDataCountry,
-  setDataBase,
   toggleSnackbar,
-  setDataStorage,
+  setDataBase,
 } from '../../features/slice/board'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import TestApiSnackbar from '../snackbar/snackbar'
-import { testDataType } from '../../features/types/types'
 import countryApi from '../../features/api/country'
 
 const MenuM = () => {
@@ -20,30 +18,15 @@ const MenuM = () => {
   const { button } = themeMaker()
   const country = useAppSelector(selectDataCountry)
 
-  const request = async (): Promise<any> => {
-    const object = await countryApi(country)
-    object.articles.forEach((article: any, id: number) => {
-      const data: testDataType = {
-        index: id,
-        text: article.description,
-        title: article.title,
-        imgSrc: article.urlToImage,
-        publishedAt: article.publishedAt,
-        author: article.author,
-        url: article.url,
-      }
-      dispatch(setDataBase(data))
-    })
-    dispatch(setDataStorage())
-    return object
-  }
   const handleSelectCountry = (selectedCountry: string) => {
     dispatch(setDataCountry(selectedCountry))
   }
 
   React.useEffect((): any => {
     dispatch(toggleSnackbar({ target: 0, value: true }))
-    request().catch((error) => console.log(error))
+    countryApi(country)
+      .then((data) => dispatch(setDataBase(data)))
+      .catch((error) => console.log(error))
     return () => dispatch(clearDataBase())
   }, [country])
 
