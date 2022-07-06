@@ -1,5 +1,5 @@
 /* eslint-disable operator-linebreak */
-import { testDataType } from '../types/types'
+import { testDataType, articles } from '../types/types'
 
 const countryApi = async (country: string): Promise<testDataType[]> => {
   const memory: testDataType[] = []
@@ -13,7 +13,8 @@ const countryApi = async (country: string): Promise<testDataType[]> => {
   const response = await fetch(url, options)
   const responseJSON = await response.text()
   const responseObject = await JSON.parse(responseJSON)
-  responseObject.articles.forEach((article: any, id: number) => {
+  const responsArticles = await responseObject.articles
+  responsArticles.forEach((article: articles, id: number) => {
     memory.push({
       index: id,
       text: article.description,

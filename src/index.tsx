@@ -8,6 +8,7 @@ import NavbarM from './components/navbar/navbar'
 import { store } from './app/store'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
+console.log('testSW')
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

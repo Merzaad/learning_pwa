@@ -28,3 +28,13 @@ export type ThemeMakerType = {
   navbarBox: object
   button: object
 }
+
+export type articles = {
+  index: number
+  description: string
+  title: string
+  urlToImage: string
+  publishedAt: string
+  author: string
+  url: string
+}
