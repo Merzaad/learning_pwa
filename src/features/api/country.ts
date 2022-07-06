@@ -2,7 +2,6 @@
 import { testDataType, articles } from '../types/types'
 
 const countryApi = async (country: string): Promise<testDataType[]> => {
-  const memory: testDataType[] = []
   const options = {
     method: 'GET',
   }
@@ -13,19 +12,15 @@ const countryApi = async (country: string): Promise<testDataType[]> => {
   const response = await fetch(url, options)
   const responseJSON = await response.text()
   const responseObject = await JSON.parse(responseJSON)
-  const responsArticles = await responseObject.articles
-  responsArticles.forEach((article: articles, id: number) => {
-    memory.push({
-      index: id,
-      text: article.description,
-      title: article.title,
-      imgSrc: article.urlToImage,
-      publishedAt: article.publishedAt,
-      author: article.author,
-      url: article.url,
-    })
-  })
-
-  return memory
+  const result = await responseObject.articles?.map((article: articles, id: number) => ({
+    index: id,
+    text: article.description,
+    title: article.title,
+    imgSrc: article.urlToImage,
+    publishedAt: article.publishedAt,
+    author: article.author,
+    url: article.url,
+  }))
+  return result
 }
 export default countryApi

@@ -9,7 +9,7 @@ import MenuM from '../components/menu/menu'
 const Board = () => {
   const { boardBox, boardLeftPaper } = themeMaker()
   const testDataBase = useAppSelector(selectTestDataBase)
-  const board1 = testDataBase.map((data) => (
+  const board1 = testDataBase?.map((data) => (
     <Paper key={data.index} sx={boardLeftPaper} elevation={0}>
       <CardM data={data} />
     </Paper>
