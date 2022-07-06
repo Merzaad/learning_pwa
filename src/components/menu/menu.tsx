@@ -21,7 +21,6 @@ const MenuM = () => {
   const handleSelectCountry = (selectedCountry: string) => {
     dispatch(setDataCountry(selectedCountry))
   }
-
   React.useEffect((): any => {
     dispatch(toggleSnackbar({ target: 0, value: true }))
     countryApi(country)

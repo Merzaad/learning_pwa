@@ -36,8 +36,8 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start": "react-scripts --max_old_space_size=4096  start",
-    "build": "react-scripts --max_old_space_size=4096  build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
@@ -59,7 +59,7 @@
     ]
   },
   "engines": {
-    "node": "17.6.0"
+    "node": "16.x"
   },
   "devDependencies": {
     "@types/workbox-expiration": "^4.3.1",
